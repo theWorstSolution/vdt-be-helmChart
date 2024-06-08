@@ -1,7 +1,8 @@
 # Define default values for customization
+appVersion: 0.1.0
 replicas: 2
 image:
-  name: nodeJsBackend
+  name: nodejs-backend
 service:
   type: LoadBalancer  # Adjust service type (e.g. NodePort) if needed
 configMap:
