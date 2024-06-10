@@ -4,7 +4,7 @@ replicas: 1
 image:
   name: agrainofsand/nodejs-backend
 service:
-  type: LoadBalancer  # Adjust service type (e.g. NodePort) if needed
+  type: NodePort  # Adjust service type (e.g. NodePort) if needed
 configMap:
   PORT: 3000  # Listening port
   MONGODB_URI: mongodb:27017/vdt2024
