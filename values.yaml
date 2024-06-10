@@ -1,6 +1,7 @@
 # Define default values for customization
 appVersion: 0.1.15
 replicas: 1
+prefix: nodejs-backend
 image:
   name: agrainofsand/nodejs-backend
 service:

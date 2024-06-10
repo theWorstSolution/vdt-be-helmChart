@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-deployment
+  name: {{ .Values.prefix }}-deployment
 spec:
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}
+      app: {{ .Values.prefix }}
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}
+        app: {{ .Values.prefix }}
     spec:
       containers:
       - name: my-app
@@ -21,22 +21,22 @@ spec:
         - name: PORT
           valueFrom:
             configMapKeyRef:
-              name: {{ .Release.Name }}-config
+              name: {{ .Values.prefix }}-config
               key: PORT
         - name: MONGODB_URI
           valueFrom:
             configMapKeyRef:
-              name: {{ .Release.Name }}-config
+              name: {{ .Values.prefix }}-config
               key: MONGODB_URI
         - name: MONGODB_USERNAME
           valueFrom:
             secretKeyRef:
-              name: {{ .Release.Name }}-secret
+              name: {{ .Values.prefix }}-secret
               key: MONGODB_USERNAME
         - name: MONGODB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: {{ .Release.Name }}-secret
+              name: {{ .Values.prefix }}-secret
               key: MONGODB_PASSWORD
         # Add references for other secrets or config maps
         # ...
