@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-config
 data:
-  PORT: {{ .Values.configMap.PORT }}
-  MONGODB_URI: {{ .Values.configMap.MONGODB_URI }}
+  PORT: '{{ .Values.configMap.PORT }}'
+  MONGODB_URI: '{{ .Values.configMap.MONGODB_URI }}'
   # Add more key-value pairs for your application settings
