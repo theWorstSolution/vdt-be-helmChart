@@ -2,7 +2,7 @@
 appVersion: 0.1.9
 replicas: 2
 image:
-  name: nodejs-backend
+  name: agrainofsand/nodejs-backend
 service:
   type: LoadBalancer  # Adjust service type (e.g. NodePort) if needed
 configMap:
