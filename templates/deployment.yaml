@@ -16,11 +16,7 @@ spec:
       - name: my-app
         image: '{{ .Values.image.name }}:{{ .Values.appVersion }}'
         ports:
-        - containerPort:
-          valueFrom:
-            configMapKeyRef:
-              name: {{ .Release.Name }}-config
-              key: PORT
+        - containerPort: {{ .Values.configMap.PORT }}
         env:
         - name: PORT
           valueFrom:
