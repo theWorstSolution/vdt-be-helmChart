@@ -9,6 +9,6 @@ configMap:
   PORT: 3000  # Listening port
   MONGODB_URI: mongodb:27017/vdt2024
 secrets:
-  MONGODB_USERNAME: bW9uZ29hZG1pbg==
-  MONGODB_PASSWORD: c2VjdXJlcGFzc3dvcmQ=
+  MONGODB_USERNAME: mongoadmin
+  MONGODB_PASSWORD: securepassword
 # Add values for ConfigMap and Secret data if applicable
