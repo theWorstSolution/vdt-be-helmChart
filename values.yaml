@@ -7,7 +7,7 @@ image:
 service:
   type: NodePort  # Adjust service type (e.g. NodePort) if needed
 configMap:
-  PORT: 3000  # Listening port
+  PORT: 3000  # Listening backend port
   MONGODB_URI: mongodb:27017/vdt2024
 secrets:
   MONGODB_USERNAME: mongoadmin

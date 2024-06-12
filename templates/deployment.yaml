@@ -13,7 +13,7 @@ spec:
         app: {{ .Values.prefix }}
     spec:
       containers:
-      - name: my-app
+      - name: {{ .Values.prefix }}
         image: '{{ .Values.image.name }}:{{ .Values.appVersion }}'
         ports:
         - containerPort: {{ .Values.configMap.PORT }}
@@ -38,5 +38,23 @@ spec:
             secretKeyRef:
               name: {{ .Values.prefix }}-secret
               key: MONGODB_PASSWORD
-        # Add references for other secrets or config maps
-        # ...
+
+      - name: haproxy
+        image: haproxy:latest
+        ports:
+        - containerPort: 443
+        volumeMounts:
+        - name: haproxy-config-volume
+          mountPath: /usr/local/etc/haproxy/haproxy.cfg
+          subPath: haproxy.cfg
+        - name: haproxy-cert-volume
+          mountPath: /usr/local/etc/haproxy/certs
+      
+      volumes:
+        - name: haproxy-config-volume
+          configMap:
+            name: haproxy-config
+
+        - name: haproxy-cert-volume
+          secret:
+            secretName: haproxy-cert
