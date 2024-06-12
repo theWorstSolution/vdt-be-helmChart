@@ -40,7 +40,7 @@ spec:
               key: MONGODB_PASSWORD
 
       - name: haproxy
-        image: haproxy:lastest
+        image: haproxy:latest
         ports:
         - containerPort: {{.Values.configMap.HAPROXY_PORT}}
         volumeMounts:
