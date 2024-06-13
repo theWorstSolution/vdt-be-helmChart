@@ -1,6 +1,6 @@
 # Define default values for customization
 appVersion: 0.2.1
-replicas: 2
+replicas: 1
 prefix: nodejs-backend
 image:
   name: agrainofsand/nodejs-backend
